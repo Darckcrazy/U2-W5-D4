@@ -8,3 +8,79 @@
 7 ritardare progressivamente l'animazione delle altre 2 parole 
 */
 
+body {
+  background: #fff;
+  font-family: "Bree Serif", serif;
+  margin: 0;
+  padding: 0;
+}
+
+#testoAlternato {
+  max-width: 600px;
+  margin: 60px auto;
+  border: 2px solid #555;
+  padding: 32px 28px;
+  font-size: 2rem;
+  color: #222;
+  background: #fff;
+}
+
+#testoAlternato p {
+  margin: 0;
+  line-height: 1.3;
+}
+
+.parole {
+  display: inline-block;
+  position: relative;
+  width: 230px; /* spazio sufficiente per la parola più lunga */
+  height: 1.2em;
+  vertical-align: middle;
+}
+
+.parole i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transform: translateY(-40%);
+  animation: alternaParole 6s cubic-bezier(0.7, 0, 0.3, 1) infinite;
+  pointer-events: none;
+  color: #6b7c87;
+  font-style: normal;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.parole i:nth-child(1) {
+  animation-delay: 0s;
+}
+.parole i:nth-child(2) {
+  animation-delay: 2s;
+}
+.parole i:nth-child(3) {
+  animation-delay: 4s;
+}
+
+@keyframes alternaParole {
+  0% {
+    opacity: 0;
+    transform: translateY(-40%);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+}

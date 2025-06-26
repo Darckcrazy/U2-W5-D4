@@ -1,0 +1,106 @@
+body {
+  background: #888;
+  font-family: "Indie Flower", cursive;
+  margin: 0;
+  padding: 0;
+}
+
+.board {
+  width: 900px;
+  margin: 40px auto;
+  background: #666;
+  padding: 40px 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+}
+
+.postit {
+  width: 200px;
+  height: 170px;
+  background: #ffffa8;
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25), 0 1.5px 0 #ccc,
+    8px 12px 0 -4px rgba(0, 0, 0, 0.1), -8px 12px 0 -4px rgba(0, 0, 0, 0.1); /* ombra laterale sx */
+  border-radius: 8px;
+  padding: 18px 16px;
+  font-size: 1.5rem;
+  color: #222;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0;
+  animation: popIn 0.7s forwards;
+}
+
+.postit:nth-child(1) {
+  background: #ffffa8;
+  transform: rotate(-7deg);
+  animation-delay: 0.1s;
+}
+.postit:nth-child(2) {
+  background: #d6ffd6;
+  transform: rotate(5deg);
+  animation-delay: 0.2s;
+}
+.postit:nth-child(3) {
+  background: #d6e0ff;
+  transform: rotate(-3deg);
+  animation-delay: 0.3s;
+}
+.postit:nth-child(4) {
+  background: #d6fff6;
+  transform: rotate(6deg);
+  animation-delay: 0.4s;
+}
+.postit:nth-child(5) {
+  background: #fff6a8;
+  transform: rotate(3deg);
+  animation-delay: 0.5s;
+}
+.postit:nth-child(6) {
+  background: #e0d6ff;
+  transform: rotate(-5deg);
+  animation-delay: 0.6s;
+}
+.postit:nth-child(7) {
+  background: #ffffd6;
+  transform: rotate(2deg);
+  animation-delay: 0.7s;
+}
+.postit:nth-child(8) {
+  background: #d6fff6;
+  transform: rotate(-4deg);
+  animation-delay: 0.8s;
+}
+
+.postit:hover {
+  z-index: 2;
+  transform: scale(1.18) rotate(0deg);
+  box-shadow: 0 24px 48px 0 rgba(0, 0, 0, 0.4), 0 2px 0 #bbb,
+    12px 18px 0 -2px rgba(0, 0, 0, 0.15), -12px 18px 0 -2px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(-60px) rotate(-10deg);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.05) translateY(10px) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    /* Keep the original transform for each postit */
+  }
+}
+
+/* Testo nei post-it */
+.postit .title {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
